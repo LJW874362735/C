@@ -1,0 +1,22 @@
+/*  冒泡排序：链表中n（即X的指数）小->大排序  */
+void bubble_sort(Poly *L)
+{
+	int temp,a;
+	Poly *p,*tail,*q;
+	if(L->next==NULL)/*  链表为空！  */
+	{
+		printf("链表为空！");
+		return;
+	}
+	for(p=L->next;p->next!=NULL;p=p->next) /*  冒泡排序：小-大  */
+		for(q=p->next;q!=NULL;q=q->next)
+			if(p->n>q->n)
+			{
+				temp=q->n;  /*  只交换结点的数据域  */
+				q->n=p->n;
+				p->n=temp;
+				a=q->a;
+				q->a=p->a;
+				p->a=a;
+			}
+}
